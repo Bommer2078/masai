@@ -21,6 +21,10 @@ const createLintingRule = () => ({
 })
 
 module.exports = {
+	externals: {
+		'web3': 'web3',
+		'Web3': 'Web3'
+	},
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'

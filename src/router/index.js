@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import mainPage from '@/pages/main_page/main_page.vue'
+import boxList from '@/pages/box_list/box_list.vue'
+import myPackage from '@/pages/my_package/my_package.vue'
+import boxDetail from '@/pages/boxDetail/boxDetail.vue'
 Vue.use(Router)
 export default new Router({
 	routes: [
@@ -8,6 +11,21 @@ export default new Router({
 			path     : '/',
 			name     : 'mainPage',
 			component: mainPage
+		},
+		{
+			path     : '/box_list',
+			name     : 'boxList',
+			component: boxList
+		},
+		{
+			path     : '/my_package',
+			name     : 'myPackage',
+			component: myPackage
+		},
+		{
+			path     : '/box_detail',
+			name     : 'boxDetail',
+			component: boxDetail
 		}
 	]
 })

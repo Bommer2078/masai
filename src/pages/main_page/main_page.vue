@@ -9,7 +9,7 @@
 							<div class="menu" :class="{'menu-item-cover':showMenuItemVal}">
 								<div class="menu-button" @click="showMenuItem">Menu</div>
 								<span class="word1">Home</span>
-								<span class="info1">Announcement
+								<span class="info1" @click="gotoRout('/')">Announcement
 									<img
 										class="icon1"
 										referrerpolicy="no-referrer"
@@ -17,7 +17,7 @@
 									/>
 								</span>
 								<span class="info2">Game</span>
-								<span class="txt1">Market</span>
+								<span class="txt1"  @click="gotoRout('/box_list')">Market</span>
 								<span class="word2">White&nbsp;Paper</span>
 
 							</div>
@@ -81,7 +81,7 @@
 										referrerpolicy="no-referrer"
 										src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng290c3d7cb05fc9a4418e1aaac932737a1ae971fc837140aafa4c347c35c08bc9"
 									/>
-									<div class="box4 flex-col justify-center align-center"><span class="word3">Route&nbsp;Map</span></div>
+									<div class="box4 flex-col justify-center align-center"><span class="word3">Road&nbsp;Map</span></div>
 									<img
 										class="img5"
 										referrerpolicy="no-referrer"
@@ -91,9 +91,9 @@
 
 								<template v-if="devicewidth > 716">
 									<div class="box5 flex-row">
-										<span class="word4">January&nbsp;2022</span>
-										<span class="word5">February&nbsp;2022</span>
-										<span class="txt6">March&nbsp;2022</span>
+										<span class="word4">2022&nbsp;Q1</span>
+										<span class="word5">2022&nbsp;Q1</span>
+										<span class="txt6">2022&nbsp;Q2</span>
 										<span class="word6">2022&nbsp;Q2</span>
 									</div>
 									<div class="box6 flex-col"></div>
@@ -102,7 +102,7 @@
 											Start&nbsp;blind&nbsp;box
 											<br />
 											<br />
-											Online&nbsp;NFT&nbsp;market
+											Online NFT market
 											<br />
 											<br />
 											Private&nbsp;sale
@@ -120,24 +120,24 @@
 											Open&nbsp;the&nbsp;game&nbsp;system
 											<br />
 											<br />
-											Open&nbsp;the&nbsp;breeding&nbsp;system
+											Open the breeding system
 										</span>
 										<span class="paragraph2">
-											Open&nbsp;a&nbsp;large-scale&nbsp;event
+											Open a large-scale event
 											<br />
 											<br />
-											Listed&nbsp;on&nbsp;Binance&nbsp;Exchange
+											Listed on Binance Exchange
 											<br />
 										</span>
 										<span class="infoBox2">
-											Open&nbsp;a&nbsp;large-scale&nbsp;event
+											Open a large-scale event
 											<br />
 											<br />
 											Launch&nbsp;CMC,&nbsp;etc.
 										</span>
 									</div>
 								</template>
-								<img v-else style="width: 100vw;margin-top:20px;" src="../../../static/img/demo/map.jpg" alt="">
+								<img v-else style="width: 100vw;margin-top:20px;" src="../../../static/img/demo/map.png" alt="">
 								<div class="box8 flex-row justify-between">
 									<img
 										class="pic6"
@@ -254,24 +254,28 @@
 						</span>
 					</div> -->
 					<span class="txt10">
-						Horse&nbsp;racing&nbsp;winner&nbsp;is&nbsp;a&nbsp;"gamefi&nbsp;+&nbsp;NFT"&nbsp;horse&nbsp;racing&nbsp;game.
+						This will be your meta universe horse farm
+
 					</span>
 					<span class="word11">
-						He&nbsp;is&nbsp;released&nbsp;on&nbsp;the&nbsp;avalanche&nbsp;chain,&nbsp;allowing&nbsp;users&nbsp;to&nbsp;play&nbsp;to&nbsp;-&nbsp;earn&nbsp;in&nbsp;the&nbsp;game.
+						Horse racing Winner will be the best horse racing game on avalanche.
 					</span>
 					<div class="outer4 flex-row justify-between">
 						<img
+							@click="openLink('twitter')"
 							class="label5"
 							referrerpolicy="no-referrer"
 							src="../../../static/copyright/twitter-circle-fill@2x.png"
 						/>
 						<img
+							@click="openLink('telegram')"
 							class="icon3"
 							referrerpolicy="no-referrer"
 							src="../../../static/copyright/telegram@2x.png"
 						/>
 						<div class="layer5 flex-col">
 							<img
+								@click="openLink('discord')"
 								class="label6"
 								referrerpolicy="no-referrer"
 								src="../../../static/copyright/discord@2x.png"
@@ -281,11 +285,11 @@
 					<div class="outer5 flex-col justify-center align-center">
 						<div class="wrap2 flex-col">
 							<div class="mod7 flex-col"></div>
-							<img
-								class="img8"
-								referrerpolicy="no-referrer"
-								src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2300b16bdded7041b44e0f6885a4a3ae4e834971c8ec8c7d2cbbaef2cc1c5f94"
-							/>
+							<video class="img8" controls poster="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2300b16bdded7041b44e0f6885a4a3ae4e834971c8ec8c7d2cbbaef2cc1c5f94">
+								<source src="https://masai.s3.amazonaws.com/e7171fb0922c24fe6c68b28a89784093.mp4" type="video/mp4">
+								<source src="movie.ogg" type="video/ogg">
+								Your browser does not support the video tag.
+							</video>
 						</div>
 					</div>
 				</div>
@@ -351,24 +355,25 @@
 			<div class="outer1 flex-row">
 				<div class="icon-cover">
 					<img
-						class="label3"
 						referrerpolicy="no-referrer"
-						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge33c03fc675f14e188c9b0147c2f607e49e9bbb733fd9d22101a008b74615d90"
+						src="../../../static/img/demo/SketchPngf56cecf6a3dde1390dc1bf066aec3ef691bb2722b3db7138a133ce2ead0ac379.png"
 					/>
-					<span class="info5">Horse&nbsp;ricing&nbsp;winner</span>
 				</div>
 				<div class="copy-right">
 					<img
+						@click="openLink('twitter')"
 						class="icon1"
 						referrerpolicy="no-referrer"
 						src="../../../static/copyright/twitter-circle-fill@2x.png"
 					/>
 					<img
+						@click="openLink('telegram')"
 						class="label4"
 						referrerpolicy="no-referrer"
 						src="../../../static/copyright/telegram@2x.png"
 					/>
 					<img
+						@click="openLink('discord')"
 						class="icon2"
 						referrerpolicy="no-referrer"
 						src="../../../static/copyright/discord@2x.png"
@@ -407,6 +412,25 @@ export default {
 		this.zoomDom()
 	},
 	methods: {
+		gotoRout (rou) {
+			this.$router.replace(rou)
+		},
+		openLink (type) {
+			switch (type) {
+				case 'twitter':
+					window.open('https://t.me/Horse_gamefi')
+					break
+				case 'telegram':
+					window.open('https://twitter.com/horse_gamefi')
+					break
+				case 'discord':
+					window.open('https://discord.gg/n8YmNEvmdQ')
+					break
+
+				default:
+					break
+			}
+		},
 		showMenuItem () {
 			if (this.devicewidth < 716) {
 				this.showMenuItemVal = !this.showMenuItemVal
@@ -430,7 +454,6 @@ export default {
 			if (this.devicewidth > 716) {
 				let num = Number(this.devicewidth / 1920).toFixed(2)
 
-				console.log('this.devicewidth', num)
 				zoomDom.style.zoom = num
 			} else {
 				let dom1 = document.getElementsByClassName('outer5')[0]
@@ -472,7 +495,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../../libs/common.css';
 @import '../../libs/index.less';
 @media screen and (max-width: 716px) {
@@ -520,22 +543,24 @@ export default {
 					margin-left: 20px;
 				}
 				.txt10 {
-					width: 80vw;
+					width: 90vw;
 					height: unset;
 					line-height: 30px;
 					font-size: 24px !important;
 				}
 				.word11 {
 					width: 90vw;
+					font-size: 14px;
+					margin-top: 10px;
+					line-height: 20px;
 				}
 				.outer4 {
 					margin: 0;
-					margin-top: 35px;
 					margin-left: 20px;
 					margin-bottom: 10px;
 				}
 				.outer5 {
-					margin-top: 0;
+					margin-top: 60px;
 				}
 			}
 			.section15,.section12,.section13 {
@@ -609,7 +634,7 @@ export default {
 			}
 			.outer2 {
 				margin: 0;
-				margin-top: 50px;
+				margin-top: 60px;
 				margin-bottom: 36px;
 			}
 		}
