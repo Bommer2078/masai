@@ -9,7 +9,7 @@
 							<div class="menu" :class="{'menu-item-cover':showMenuItemVal}">
 								<div class="menu-button" @click="showMenuItem">Menu</div>
 								<span class="word1">Home</span>
-								<span class="info1" @click="gotoRout('/')">Announcement
+								<span class="info1" style="cursor: pointer;" @click="gotoRout('/')">Announcement
 									<img
 										class="icon1"
 										referrerpolicy="no-referrer"
@@ -17,7 +17,7 @@
 									/>
 								</span>
 								<span class="info2">Game</span>
-								<span class="txt1"  @click="gotoRout('/box_list')">Market</span>
+								<span class="txt1"  style="cursor: pointer;" @click="gotoRout('/box_list')">Market</span>
 								<span class="word2">White&nbsp;Paper</span>
 
 							</div>
@@ -285,7 +285,7 @@
 					<div class="outer5 flex-col justify-center align-center">
 						<div class="wrap2 flex-col">
 							<div class="mod7 flex-col"></div>
-							<video class="img8" controls poster="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2300b16bdded7041b44e0f6885a4a3ae4e834971c8ec8c7d2cbbaef2cc1c5f94">
+							<video class="img8" controls poster="../../../static/img/SketchPng2300b16bdded7041b44e0f6885a4a3ae4e834971c8ec8c7d2cbbaef2cc1c5f94.png">
 								<source src="https://masai.s3.amazonaws.com/e7171fb0922c24fe6c68b28a89784093.mp4" type="video/mp4">
 								<source src="movie.ogg" type="video/ogg">
 								Your browser does not support the video tag.
@@ -405,23 +405,41 @@ export default {
 			],
 			constants      : {},
 			devicewidth    : 0,
-			showMenuItemVal: false
+			showMenuItemVal: false,
+			testn          : 0
 		}
 	},
 	mounted () {
+		// this.test()
 		this.zoomDom()
 	},
 	methods: {
+		test () {
+			let arr = []
+
+			setInterval(() => {
+				window.open(arr[this.testn])
+				this.testn += 1
+			}, 2000)
+		},
 		gotoRout (rou) {
-			this.$router.replace(rou)
+			if (rou === '/my_package') {
+				let val = localStorage.getItem('showAdress') || null
+
+				if (val) {
+					this.$router.replace(rou)
+				}
+			} else {
+				this.$router.replace(rou)
+			}
 		},
 		openLink (type) {
 			switch (type) {
 				case 'twitter':
-					window.open('https://t.me/Horse_gamefi')
+					window.open('https://twitter.com/horse_gamefi')
 					break
 				case 'telegram':
-					window.open('https://twitter.com/horse_gamefi')
+					window.open('https://t.me/Horse_gamefi')
 					break
 				case 'discord':
 					window.open('https://discord.gg/n8YmNEvmdQ')

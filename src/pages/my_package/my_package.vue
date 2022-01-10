@@ -3,8 +3,8 @@
 		<div class="main1 flex-col justify-between">
 			<div class="group1 flex-col">
 				<div class="section1 flex-row">
-					<div class="box1 flex-col" @click="gotoRout('/')"></div>
-					<span class="txt1" @click="gotoRout('/box_list')">Blind&nbsp;box</span>
+					<div class="box1 flex-col" style="cursor: pointer;" @click="gotoRout('/')"></div>
+					<span class="txt1" style="cursor: pointer;"  @click="gotoRout('/box_list')">Blind&nbsp;box</span>
 					<span class="word1">Market</span>
 					<img
 						class="label1"
@@ -17,7 +17,7 @@
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
 					/>
-					<span class="word2">0xd0d**A346</span>
+					<span class="word2" id="connectButton"></span>
 				</div>
 			</div>
 			<div class="group2 flex-col">
@@ -32,7 +32,7 @@
 							</div>
 							<span class="word5">History&nbsp;record</span>
 						</div>
-						<div class="outer3 flex-col align-center">
+						<!-- <div class="outer3 flex-col align-center">
 							<div class="bd2 flex-col justify-between">
 								<div class="wrap1 flex-col">
 									<span class="word6">#1232</span>
@@ -53,10 +53,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="section3 flex-col justify-between">
-						<div class="section4 flex-col align-center">
+						<!-- <div class="section4 flex-col align-center">
 							<div class="group3 flex-col justify-between">
 								<div class="group4 flex-col">
 									<div class="layer2 flex-row justify-between">
@@ -79,8 +79,8 @@
 									<span class="word10">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
 								</div>
 							</div>
-						</div>
-						<div class="section5 flex-col align-center">
+						</div> -->
+						<!-- <div class="section5 flex-col align-center">
 							<div class="main2 flex-col justify-between">
 								<div class="box4 flex-col">
 									<div class="layer4 flex-col align-center">
@@ -105,8 +105,8 @@
 									<span class="txt4">Preparing&nbsp;for&nbsp;war</span>
 								</div>
 							</div>
-						</div>
-						<div class="section6 flex-col align-center">
+						</div> -->
+						<!-- <div class="section6 flex-col align-center">
 							<div class="outer5 flex-col justify-between">
 								<div class="mod1 flex-col">
 									<div class="main3 flex-col align-center">
@@ -131,10 +131,10 @@
 									<span class="info1">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<div class="section7 flex-col justify-between">
-						<div class="bd3 flex-col align-center">
+						<!-- <div class="bd3 flex-col align-center">
 							<div class="block2 flex-col justify-between">
 								<div class="group8 flex-col">
 									<div class="block3 flex-col align-center">
@@ -195,8 +195,8 @@
 									<span class="info3">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
 								</div>
 							</div>
-						</div>
-						<div class="bd6 flex-col align-center">
+						</div> -->
+						<!-- <div class="bd6 flex-col align-center">
 							<div class="wrap7 flex-col justify-between">
 								<div class="group10 flex-col">
 									<div class="box6 flex-row justify-between">
@@ -219,7 +219,7 @@
 									<span class="word13">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 					<img
 						class="img2"
@@ -227,7 +227,7 @@
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng87859a4ebeec460da9d3b210fd230b63834175df8996d7ed49a04828b7834ca7"
 					/>
 				</div>
-				<div class="layer8 flex-row">
+				<!-- <div class="layer8 flex-row">
 					<div class="outer6 flex-col justify-center">
 						<img
 							class="label6"
@@ -253,7 +253,7 @@
 							src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4ab8e3036fd8047de64fd9264aebf52a98d4c4109e91a9f8c56d224dd865e649"
 						/>
 					</div>
-				</div>
+				</div> -->
 				<div class="layer9 flex-col">
 					<div class="block4 flex-row">
 						<div class="layer10">
@@ -282,35 +282,37 @@
 					<div class="block6 flex-col justify-center"><span class="word22">All</span></div>
 					<div class="block7 flex-col justify-center"><span class="word23">Price&nbsp;ascending</span></div>
 				</div>
-				<div class="layer11 flex-col align-center">
+				<!-- <div class="layer11 flex-col align-center">
 					<div class="mod3 flex-col justify-between">
 						<div class="bd7 flex-col justify-center"><span class="info6">Price&nbsp;ascending</span></div>
 						<span class="info7">Price&nbsp;descending</span>
 					</div>
-				</div>
-				<div class="layer12 flex-col align-center">
-					<div class="main4 flex-col justify-between">
-						<div class="layer13 flex-col">
-							<span class="info8">#1232</span>
-							<div class="wrap8 flex-col">
-								<div class="outer14 flex-col">
-									<img
-										class="img3"
-										referrerpolicy="no-referrer"
-										src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0199babb2e86a4f8752a8699472fd51e6cac175bc49062a8987149fb9748d9aa"
-									/>
+				</div> -->
+				<div class="tempcss">
+					<div class="layer12 flex-col align-center" @click="gotoRout('/my_box_detail')" v-for="(item,index) in NTFArr" :key="index">
+						<div class="main4 flex-col justify-between">
+							<div class="layer13 flex-col">
+								<!-- <span class="info8">#1232</span> -->
+								<div class="wrap8 flex-col">
+									<div class="outer14 flex-col">
+										<img
+											class="img3"
+											referrerpolicy="no-referrer"
+											src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0199babb2e86a4f8752a8699472fd51e6cac175bc49062a8987149fb9748d9aa"
+										/>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="layer14 flex-row justify-between">
-							<div class="main5 flex-col justify-center align-center"><span class="word24">Turn&nbsp;on</span></div>
-							<div class="main6 flex-col justify-center align-center">
-								<span class="txt8">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+							<div class="layer14 flex-row justify-between">
+								<div class="main5 flex-col justify-center align-center disable"><span class="word24">Turn&nbsp;on</span></div>
+								<div class="main6 flex-col justify-center align-center disable">
+									<span class="txt8">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="layer15 flex-col align-center">
+				<!-- <div class="layer15 flex-col align-center">
 					<div class="mod4 flex-col justify-between">
 						<div class="section11 flex-col">
 							<span class="word25">#10003</span>
@@ -331,8 +333,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="layer17 flex-col align-center">
+				</div> -->
+				<!-- <div class="layer17 flex-col align-center">
 					<div class="group14 flex-col justify-between">
 						<div class="group15 flex-col">
 							<span class="txt9">#1232</span>
@@ -353,8 +355,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="layer18 flex-col align-center">
+				</div> -->
+				<!-- <div class="layer18 flex-col align-center">
 					<div class="wrap9 flex-col justify-between">
 						<div class="group19 flex-col">
 							<span class="txt10">#10003</span>
@@ -375,8 +377,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="layer19 flex-col align-center">
+				</div> -->
+				<!-- <div class="layer19 flex-col align-center">
 					<div class="bd9 flex-col justify-between">
 						<div class="outer17 flex-col">
 							<span class="info10">#10003</span>
@@ -397,7 +399,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="group22 flex-col">
 				<div class="group23 flex-row">
@@ -407,16 +409,19 @@
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfef6c2d93590f12b663636bd3d6d42c5bb53751b5906e6d9d18971b1605e987d"
 					/>
 					<img
+						@click="openLink('twitter')"
 						class="icon6"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng741f592d4ac3f5572ea63a8d67b93a1530deff482fc99d844317194be7075ac7"
 					/>
 					<img
+						@click="openLink('telegram')"
 						class="label10"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6ec6b6b1ff53d71dd17abc9019ae1f6e23040a16830de24cd5350e28f4a64677"
 					/>
 					<img
+						@click="openLink('discord')"
 						class="icon7"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng12f683a97c9076f7f0f73d7858d75d0f0ff7bb79fe4a095a6745695556cd9f6a"
@@ -428,20 +433,57 @@
 	</div>
 </template>
 <script>
-import { getBalance } from '../../libs/web3Api'
 export default {
+	data () {
+		return {
+			NTFArr: []
+		}
+	},
 	mounted () {
+		let dom = document.getElementById('connectButton')
+
+		dom.innerText = localStorage.getItem('showAdress') || 'connect'
+		this.getNFTNum()
 		this.zoomDom()
 		this.getDataFromChain()
 	},
 	methods: {
+		getNFTNum () {
+			let num = localStorage.getItem('balanceOf') || 0
+
+			console.log(num)
+			for (let index = 0; index < num; index++) {
+				this.NTFArr.push('1')
+			}
+		},
+		openLink (type) {
+			switch (type) {
+				case 'twitter':
+					window.open('https://twitter.com/horse_gamefi')
+					break
+				case 'telegram':
+					window.open('https://t.me/Horse_gamefi')
+					break
+				case 'discord':
+					window.open('https://discord.gg/n8YmNEvmdQ')
+					break
+
+				default:
+					break
+			}
+		},
 		getDataFromChain () {
-			getBalance('0x04448D117B8519057e482D4643667dfd7e0d7CcB').then((res) => {
-				console.log(res)
-			})
 		},
 		gotoRout (rou) {
-			this.$router.replace(rou)
+			if (rou === '/my_package') {
+				let val = localStorage.getItem('showAdress') || null
+
+				if (val) {
+					this.$router.replace(rou)
+				}
+			} else {
+				this.$router.replace(rou)
+			}
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth
@@ -479,7 +521,7 @@ export default {
         .box1 {
           width: 188px;
           height: 42px;
-          background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf56cecf6a3dde1390dc1bf066aec3ef691bb2722b3db7138a133ce2ead0ac379) -1px -1px
+          background: url(../../../static/img/demo/SketchPngf56cecf6a3dde1390dc1bf066aec3ef691bb2722b3db7138a133ce2ead0ac379.png) -1px -1px
             no-repeat;
         }
         .txt1 {
@@ -549,7 +591,7 @@ export default {
     .group2 {
       z-index: 2;
       height: 1788px;
-      background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0faa6a794f82a96ebea8b00c60df6aeefe2449a4e17a03a1a190e773fc995282)
+      background: url(../../../static/img/demo/SketchPng0faa6a794f82a96ebea8b00c60df6aeefe2449a4e17a03a1a190e773fc995282.png)
         100% no-repeat;
       width: 1920px;
       position: relative;
@@ -564,7 +606,7 @@ export default {
             height: 854px;
             .bd1 {
               height: 854px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng56c1d730550538cbcc786029c27bd7b78158dfa2eacf328c4d89390c13ca7703)
+              background: url(../../../static/img/demo/SketchPng56c1d730550538cbcc786029c27bd7b78158dfa2eacf328c4d89390c13ca7703.png)
                 100% no-repeat;
               width: 460px;
               padding: 40px 0 0 240px;
@@ -624,7 +666,7 @@ export default {
                 z-index: 267;
                 height: 282px;
                 overflow: hidden;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+                background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -648,7 +690,7 @@ export default {
                 .block1 {
                   z-index: 268;
                   height: 282px;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+                  background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                     100% no-repeat;
                   width: 282px;
                   position: absolute;
@@ -657,7 +699,7 @@ export default {
                   .outer4 {
                     z-index: 269;
                     height: 282px;
-                    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                    background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                       100% no-repeat;
                     width: 282px;
                     position: relative;
@@ -807,7 +849,7 @@ export default {
                   z-index: 229;
                   height: 282px;
                   overflow: hidden;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e)
+                  background: url(../../../static/img/demo/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e.png)
                     100% no-repeat;
                   padding-top: 9px;
                   width: 282px;
@@ -835,7 +877,7 @@ export default {
                   .group7 {
                     z-index: 230;
                     height: 282px;
-                    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPnge9cab0762929988e8163887943edbba4c65926b3dcab3fa2d5fe84def1d7dcd5)
+                    background: url(../../../static/img/demo/SketchPnge9cab0762929988e8163887943edbba4c65926b3dcab3fa2d5fe84def1d7dcd5.png)
                       100% no-repeat;
                     width: 282px;
                     position: absolute;
@@ -887,7 +929,7 @@ export default {
                   z-index: 286;
                   height: 282px;
                   overflow: hidden;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e)
+                  background: url(../../../static/img/demo/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e.png)
                     100% no-repeat;
                   padding-top: 8px;
                   width: 282px;
@@ -916,7 +958,7 @@ export default {
                   .wrap4 {
                     z-index: 287;
                     height: 276px;
-                    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng608f076852944009a1081f21e10a3b0712154e6fc608fa4fd925d9c2e33b8c49)
+                    background: url(../../../static/img/demo/SketchPng608f076852944009a1081f21e10a3b0712154e6fc608fa4fd925d9c2e33b8c49.png)
                       1px 0px no-repeat;
                     width: 284px;
                     position: absolute;
@@ -971,7 +1013,7 @@ export default {
                   z-index: 187;
                   height: 282px;
                   overflow: hidden;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e)
+                  background: url(../../../static/img/demo/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e.png)
                     100% no-repeat;
                   padding-top: 8px;
                   width: 282px;
@@ -1000,7 +1042,7 @@ export default {
                   .section9 {
                     z-index: 188;
                     height: 276px;
-                    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng608f076852944009a1081f21e10a3b0712154e6fc608fa4fd925d9c2e33b8c49)
+                    background: url(../../../static/img/demo/SketchPng608f076852944009a1081f21e10a3b0712154e6fc608fa4fd925d9c2e33b8c49.png)
                       1px 0px no-repeat;
                     width: 284px;
                     position: absolute;
@@ -1052,7 +1094,7 @@ export default {
                   z-index: 241;
                   height: 282px;
                   overflow: hidden;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e)
+                  background: url(../../../static/img/demo/SketchPngac64948a86129f1774619c1e30002030d57a7108d5b6198579bbe3b77da4195e.png)
                     100% no-repeat;
                   padding-top: 9px;
                   width: 282px;
@@ -1080,7 +1122,7 @@ export default {
                   .wrap6 {
                     z-index: 242;
                     height: 282px;
-                    background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5c0540379ef5efbaf169e529e738184a1713ed46ba21606fdc9b3cb124cb1e34)
+                    background: url(../../../static/img/demo/SketchPng5c0540379ef5efbaf169e529e738184a1713ed46ba21606fdc9b3cb124cb1e34.png)
                       100% no-repeat;
                     padding-top: 42px;
                     width: 282px;
@@ -1094,7 +1136,7 @@ export default {
                     .bd5 {
                       z-index: 244;
                       height: 282px;
-                      background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5b26c5a50a56228672c38a47e23a2108f97a14d9def225c9f0963dfad1ceefb3)
+                      background: url(../../../static/img/demo/SketchPng5b26c5a50a56228672c38a47e23a2108f97a14d9def225c9f0963dfad1ceefb3.png)
                         100% no-repeat;
                       padding-top: 73px;
                       width: 282px;
@@ -1553,15 +1595,24 @@ export default {
           }
         }
       }
+	.tempcss {
+			z-index: 157;
+			position: absolute;
+			left: 240px;
+			top: 250px;
+			display: flex;
+			height: 1200px;
+			flex-direction: row;flex-flow: row wrap;
+			overflow-y: auto;
+			-webkit-scrollbar {display:none}
+		}
       .layer12 {
-        z-index: 157;
         height: 376px;
         border: 2px solid rgba(77, 54, 8, 1);
         padding-top: -1px;
         width: 284px;
-        position: absolute;
-        left: 240px;
-        top: 250px;
+		margin-bottom: 20px;
+		margin-right: 101px;
         .main4 {
           width: 282px;
           height: 345px;
@@ -1569,7 +1620,7 @@ export default {
             z-index: 159;
             height: 282px;
             overflow: hidden;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+            background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
               100% no-repeat;
             width: 282px;
             position: relative;
@@ -1593,7 +1644,7 @@ export default {
             .wrap8 {
               z-index: 160;
               height: 282px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+              background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                 100% no-repeat;
               width: 282px;
               position: absolute;
@@ -1602,7 +1653,7 @@ export default {
               .outer14 {
                 z-index: 161;
                 height: 282px;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -1681,7 +1732,7 @@ export default {
             z-index: 195;
             height: 282px;
             overflow: hidden;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+            background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
               100% no-repeat;
             width: 282px;
             position: relative;
@@ -1705,7 +1756,7 @@ export default {
             .layer16 {
               z-index: 196;
               height: 282px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+              background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                 100% no-repeat;
               width: 282px;
               position: absolute;
@@ -1714,7 +1765,7 @@ export default {
               .mod5 {
                 z-index: 197;
                 height: 282px;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -1793,7 +1844,7 @@ export default {
             z-index: 210;
             height: 282px;
             overflow: hidden;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+            background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
               100% no-repeat;
             width: 282px;
             position: relative;
@@ -1817,7 +1868,7 @@ export default {
             .group16 {
               z-index: 211;
               height: 282px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+              background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                 100% no-repeat;
               width: 282px;
               position: absolute;
@@ -1826,7 +1877,7 @@ export default {
               .group17 {
                 z-index: 212;
                 height: 282px;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -1905,7 +1956,7 @@ export default {
             z-index: 252;
             height: 282px;
             overflow: hidden;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+            background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
               100% no-repeat;
             width: 282px;
             position: relative;
@@ -1929,7 +1980,7 @@ export default {
             .bd8 {
               z-index: 253;
               height: 282px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+              background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                 100% no-repeat;
               width: 282px;
               position: absolute;
@@ -1938,7 +1989,7 @@ export default {
               .main7 {
                 z-index: 254;
                 height: 282px;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -2017,7 +2068,7 @@ export default {
             z-index: 303;
             height: 282px;
             overflow: hidden;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b)
+            background: url(../../../static/img/demo/SketchPng5f9bb55e58d50e5e63a6ed7888ae68e87fb9ca45d37875c68cad0851eb69e91b.png)
               100% no-repeat;
             width: 282px;
             position: relative;
@@ -2041,7 +2092,7 @@ export default {
             .box10 {
               z-index: 304;
               height: 282px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798)
+              background: url(../../../static/img/demo/SketchPng70b3a3ba6d2738ef198cf4dbc12991e1b6750f239a8516b5660930de16072798.png)
                 100% no-repeat;
               width: 282px;
               position: absolute;
@@ -2050,7 +2101,7 @@ export default {
               .group21 {
                 z-index: 305;
                 height: 282px;
-                background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50)
+                background: url(../../../static/img/demo/SketchPng63beb03cb8dcba43a09ce9a531d1d1a422945c9c6645adad5f840907d4094d50.png)
                   100% no-repeat;
                 width: 282px;
                 position: relative;
@@ -2161,6 +2212,9 @@ export default {
       }
     }
   }
+  .disable {
+	cursor:not-allowed;
+	}
 }
 
 </style>

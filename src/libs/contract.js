@@ -1,6 +1,7 @@
 
 import MetaMaskOnboarding from '@metamask/onboarding'
-
+import testJSON from './avax-testnet/BlindBox.json'
+const Web3 = require('Web3')
 const initialize = () => {
 	// Have to check the ethereum binding on the window object to see if it's installed
 	const ethereum = window.ethereum
@@ -33,7 +34,6 @@ const initialize = () => {
 			onboardButton.disabled = false
 		} else {
 			// If it is installed we change our button text
-			onboardButton.innerText = 'Connect'
 			onboardButton.onclick = onClickConnect
 			onboardButton.disabled = false
 		}
@@ -50,10 +50,24 @@ const initialize = () => {
 			// Will open the MetaMask UI
 			// You should disable this button while the request is pending!
 			let res = await ethereum.request({ method: 'eth_requestAccounts' })
+			let arr = res[0].split('')
+			let l = arr.length
+			let str = `${arr[0]}${arr[1]}${arr[2]}${arr[3]}${arr[4]}...${arr[l - 4]}${arr[l - 3]}${arr[l - 2]}${arr[l - 1]}`
 
+			onboardButton.innerText = str
+			localStorage.setItem('showAdress', str)
 			localStorage.setItem('walletAdress', res[0])
+			const web3 = new Web3(new Web3.providers.HttpProvider('https://api.avax-test.network/ext/bc/C/rpc'))
+			const nftAddress = '0xCa07Cd5dF8dCBDc6A55305E80573F1CDB90aCaCd'
+
+			const walletAddress = res[0]
+			const contract = new web3.eth.Contract(testJSON.abi, nftAddress)
+
+			contract.methods.balanceOf(walletAddress).call().then((res) => {
+				localStorage.setItem('balanceOf', res)
+			})
 		} catch (error) {
-			console.error(error)
+			// console.error(error)
 		}
 	}
 

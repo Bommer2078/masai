@@ -3,38 +3,38 @@
 		<div class="group1 flex-col justify-between">
 			<div class="box1 flex-col align-center">
 				<div class="group2 flex-row">
-					<div class="wrap1 flex-col" @click="gotoRout('/')"></div>
-					<span class="word1" @click="gotoRout('/box_list')">Blind&nbsp;box</span>
+					<div class="wrap1 flex-col" style="cursor: pointer;"  @click="gotoRout('/')"></div>
+					<span class="word1" style="cursor: pointer;" @click="gotoRout('/box_list')">Blind&nbsp;box</span>
 					<span class="word2" >Market</span>
-					<span class="word3" @click="gotoRout('/my_package')">My&nbsp;backpack</span>
+					<span class="word3" style="cursor: pointer;" @click="gotoRout('/my_package')">My&nbsp;backpack</span>
 					<img
 						class="icon1"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
 					/>
-					<span class="txt1">0xd0d**A346</span>
+					<span class="txt1" id="connectButton"></span>
 				</div>
 			</div>
 			<div class="box2 flex-col">
 				<div class="main1 flex-row justify-between">
 					<div class="main2 flex-col">
-						<div class="group3 flex-row justify-between">
+						<div class="group3 flex-row justify-between" @click="gotoRout('/box_list')">
 							<img
 								class="label1"
 								referrerpolicy="no-referrer"
 								src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf66eb6e7b76953797e9995e4d428a018c3ee9abe3b17123bd85bee1e20854148"
 							/>
-							<span class="info1">return</span>
+							<span class="info1"  @click="gotoRout('/box_list')">return</span>
 						</div>
 					</div>
 					<div class="main3 flex-col">
-						<span class="word4">First&nbsp;round&nbsp;of&nbsp;sales</span>
-						<div class="section1 flex-col align-center"><span class="txt2">Over</span></div>
+						<span class="word4">Genesis Ⅰ</span>
+						<!-- <div class="section1 flex-col align-center"><span class="txt2">Over</span></div> -->
 						<div class="section2 flex-col">
 							<div class="box3 flex-col">
 								<div class="main4 flex-row justify-between">
 									<span class="txt3">price:</span>
-									<span class="txt4">2100&nbsp;HRW（$&nbsp;21USDT）</span>
+									<span class="txt4">5 AVAX</span>
 								</div>
 								<span class="word5">quantity:</span>
 								<div class="main5 flex-row justify-between">
@@ -68,16 +68,16 @@
 				<div class="wrap2 flex-row justify-between">
 					<span class="txt5">Starting&nbsp;time:</span>
 					<span class="word8">
-						2022&nbsp;/&nbsp;01&nbsp;/&nbsp;01&nbsp;12:00&nbsp;-&nbsp;2022&nbsp;/&nbsp;02&nbsp;/&nbsp;20&nbsp;12:00
+						2022-01-15 UTC 20:00 - 022-01-18 UTC 20:00
 					</span>
 				</div>
 				<div class="wrap3 flex-row justify-between">
 					<span class="word9">Limited&nbsp;purchase&nbsp;quantity:</span>
-					<span class="txt6">2&nbsp;/&nbsp;5</span>
+					<span class="txt6">0&nbsp;/&nbsp;5</span>
 				</div>
 				<div class="wrap4 flex-row justify-between">
 					<span class="txt7">The&nbsp;total&nbsp;amount:</span>
-					<span class="txt8">1020&nbsp;/&nbsp;5000</span>
+					<span class="txt8">500&nbsp;/&nbsp;500</span>
 				</div>
 			</div>
 		</div>
@@ -88,19 +88,19 @@
 				</span>
 				<div class="outer1 flex-row justify-between">
 					<span class="word10">Legendary&nbsp;horse:</span>
-					<span class="info3">3%</span>
+					<span class="info3">2%</span>
 				</div>
 				<div class="outer2 flex-row justify-between">
 					<span class="info4">Epic&nbsp;Horse:</span>
-					<span class="word11">20%</span>
+					<span class="word11">10%</span>
 				</div>
 				<div class="outer3 flex-row justify-between">
 					<span class="info5">Rare&nbsp;horse:</span>
-					<span class="word12">30%</span>
+					<span class="word12">25%</span>
 				</div>
 				<div class="outer4 flex-row justify-between">
 					<span class="word13">Normal&nbsp;horse:</span>
-					<span class="word14">57%</span>
+					<span class="word14">63%</span>
 				</div>
 			</div>
 		</div>
@@ -117,16 +117,19 @@
 					src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfef6c2d93590f12b663636bd3d6d42c5bb53751b5906e6d9d18971b1605e987d"
 				/>
 				<img
+					@click="openLink('twitter')"
 					class="label2"
 					referrerpolicy="no-referrer"
 					src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng741f592d4ac3f5572ea63a8d67b93a1530deff482fc99d844317194be7075ac7"
 				/>
 				<img
+					@click="openLink('telegram')"
 					class="label3"
 					referrerpolicy="no-referrer"
 					src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng6ec6b6b1ff53d71dd17abc9019ae1f6e23040a16830de24cd5350e28f4a64677"
 				/>
 				<img
+					@click="openLink('discord')"
 					class="label4"
 					referrerpolicy="no-referrer"
 					src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng12f683a97c9076f7f0f73d7858d75d0f0ff7bb79fe4a095a6745695556cd9f6a"
@@ -144,11 +147,41 @@ export default {
 		}
 	},
 	mounted () {
+		let dom = document.getElementById('connectButton')
+
+		dom.innerText = localStorage.getItem('showAdress') || 'connect'
 		this.zoomDom()
+		this.$initializ()
 	},
 	methods: {
+		openLink (type) {
+			switch (type) {
+				case 'twitter':
+					window.open('https://twitter.com/horse_gamefi')
+					break
+				case 'telegram':
+					window.open('https://t.me/Horse_gamefi')
+					break
+				case 'discord':
+					window.open('https://discord.gg/n8YmNEvmdQ')
+					break
+
+				default:
+					break
+			}
+		},
 		gotoRout (rou) {
-			this.$router.replace(rou)
+			if (rou === '/my_package') {
+				let val = localStorage.getItem('showAdress') || null
+
+				if (val) {
+					this.$router.replace(rou)
+				} else {
+					alert('connect wallet first')
+				}
+			} else {
+				this.$router.replace(rou)
+			}
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth
@@ -183,7 +216,7 @@ export default {
         .wrap1 {
           width: 188px;
           height: 42px;
-          background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf56cecf6a3dde1390dc1bf066aec3ef691bb2722b3db7138a133ce2ead0ac379) -1px -1px
+          background: url(../../../static/img/demo/SketchPngf56cecf6a3dde1390dc1bf066aec3ef691bb2722b3db7138a133ce2ead0ac379.png) -1px -1px
             no-repeat;
         }
         .word1 {
@@ -233,6 +266,7 @@ export default {
         .txt1 {
           width: 82px;
           height: 14px;
+			cursor: pointer;
           display: block;
           overflow-wrap: break-word;
           color: rgba(204, 204, 204, 1);
@@ -248,7 +282,7 @@ export default {
     .box2 {
       z-index: 2;
       height: 1335px;
-      background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng74b94292d89bb0944541f7c09e505af189491555b63282587697870681e2793c)
+      background: url(../../../static/img/demo/SketchPng74b94292d89bb0944541f7c09e505af189491555b63282587697870681e2793c.png)
         100% no-repeat;
       width: 1920px;
       position: relative;
@@ -257,7 +291,7 @@ export default {
         height: 854px;
         .main2 {
           height: 854px;
-          background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0ff2ca78d1db2fd143a51f2745a13e4e29dd3b1e4211a9b57dec4d4a8dba846a)
+          background: url(../../../static/img/demo/SketchPng0ff2ca78d1db2fd143a51f2745a13e4e29dd3b1e4211a9b57dec4d4a8dba846a.png)
             100% no-repeat;
           width: 457px;
           padding: 40px 0 0 240px;
@@ -379,7 +413,7 @@ export default {
                 .bd1 {
                   width: 30px;
                   height: 30px;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng5ce0da2fbe80accc463293ad74293196d0d343eda1568dc8d5ec8ac857b47bee) -1px -1px
+                  background: url(../../../static/img/demo/SketchPng5ce0da2fbe80accc463293ad74293196d0d343eda1568dc8d5ec8ac857b47bee.png) -1px -1px
                     no-repeat;
                 }
                 .bd2 {
@@ -403,7 +437,7 @@ export default {
                 .bd3 {
                   width: 30px;
                   height: 30px;
-                  background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng42e325ce788763ee359bd60c16fad43b9e29e804daafa737188ea259982cd7cc) -1px -1px
+                  background: url(../../../static/img/demo/SketchPng42e325ce788763ee359bd60c16fad43b9e29e804daafa737188ea259982cd7cc.png) -1px -1px
                     no-repeat;
                 }
               }
@@ -414,6 +448,7 @@ export default {
                 margin-top: 50px;
                 padding-left: 98px;
                 width: 220px;
+				cursor:not-allowed;
                 .info2 {
                   width: 25px;
                   height: 16px;
@@ -460,12 +495,12 @@ export default {
           height: 598px;
           border-radius: 10px;
           overflow: hidden;
-          background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc63b2a7b4d9f1902134a81af2379704a6173465cceb011876483fb03c3250c29)
+          background: url(../../../static/img/demo/SketchPngc63b2a7b4d9f1902134a81af2379704a6173465cceb011876483fb03c3250c29.png)
             100% no-repeat;
           .block1 {
             z-index: 154;
             height: 598px;
-            background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng2142c8b56c3639238d0064f008ee212db7bdf2bed22d3da138240220be2378aa)
+            background: url(../../../static/img/demo/SketchPng2142c8b56c3639238d0064f008ee212db7bdf2bed22d3da138240220be2378aa.png)
               100% no-repeat;
             width: 598px;
             position: absolute;
@@ -474,7 +509,7 @@ export default {
             .layer1 {
               z-index: 155;
               height: 598px;
-              background: url(https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng525e39058ea529a06e0f82c11c785b1d9a47c780a83ce092007d87be64ae8941)
+              background: url(../../../static/img/demo/SketchPng525e39058ea529a06e0f82c11c785b1d9a47c780a83ce092007d87be64ae8941.png)
                 100% no-repeat;
               width: 598px;
               position: relative;
