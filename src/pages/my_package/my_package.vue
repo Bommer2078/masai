@@ -1,25 +1,26 @@
 <template>
 	<div class="page flex-col" id="zoomDom3">
 		<div class="main1 flex-col justify-between">
-			<div class="group1 flex-col">
+			<navgator-part></navgator-part>
+			<!-- <div class="group1 flex-col">
 				<div class="section1 flex-row">
 					<div class="box1 flex-col" style="cursor: pointer;" @click="gotoRout('/')"></div>
-					<span class="txt1" style="cursor: pointer;"  @click="gotoRout('/box_list')">Blind&nbsp;box</span>
+					<span class="txt1" style="cursor: pointer;"  @click="gotoRout('/box_list')">Blind box</span>
 					<span class="word1">Market</span>
 					<img
 						class="label1"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng612ba46beecdabb8b5376113999a865681954869a7f0f15fc9bda34e8a7d54bb"
 					/>
-					<span class="txt2">My&nbsp;backpack</span>
+					<span class="txt2">My backpack</span>
 					<img
 						class="label2"
 						referrerpolicy="no-referrer"
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
 					/>
-					<span class="word2" id="connectButton"></span>
+					<span class="word2" id="connectButton" @click="connectWallet"></span>
 				</div>
-			</div>
+			</div> -->
 			<div class="group2 flex-col">
 				<div class="layer1 flex-row">
 					<div class="section2 flex-col justify-between">
@@ -27,10 +28,10 @@
 							<div class="bd1 flex-col">
 								<div class="outer2 flex-row justify-between">
 									<span class="word3">Collect</span>
-									<span class="word4">In&nbsp;stock</span>
+									<span class="word4">In stock</span>
 								</div>
 							</div>
-							<span class="word5">History&nbsp;record</span>
+							<span class="word5">History record</span>
 						</div>
 						<!-- <div class="outer3 flex-col align-center">
 							<div class="bd2 flex-col justify-between">
@@ -47,9 +48,9 @@
 									</div>
 								</div>
 								<div class="wrap2 flex-row justify-between">
-									<div class="box2 flex-col justify-center align-center"><span class="word7">Turn&nbsp;on</span></div>
+									<div class="box2 flex-col justify-center align-center"><span class="word7">Turn on</span></div>
 									<div class="box3 flex-col justify-center align-center">
-										<span class="word8">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+										<span class="word8">Put on the shelf</span>
 									</div>
 								</div>
 							</div>
@@ -76,7 +77,7 @@
 									</div>
 								</div>
 								<div class="group5 flex-col justify-center align-center">
-									<span class="word10">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+									<span class="word10">Put on the shelf</span>
 								</div>
 							</div>
 						</div> -->
@@ -102,7 +103,7 @@
 									</div>
 								</div>
 								<div class="box5 flex-col justify-center align-center">
-									<span class="txt4">Preparing&nbsp;for&nbsp;war</span>
+									<span class="txt4">Preparing for war</span>
 								</div>
 							</div>
 						</div> -->
@@ -128,7 +129,7 @@
 									</div>
 								</div>
 								<div class="mod2 flex-col justify-center align-center">
-									<span class="info1">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+									<span class="info1">Put on the shelf</span>
 								</div>
 							</div>
 						</div> -->
@@ -192,7 +193,7 @@
 									</div>
 								</div>
 								<div class="layer7 flex-col justify-center align-center">
-									<span class="info3">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+									<span class="info3">Put on the shelf</span>
 								</div>
 							</div>
 						</div> -->
@@ -216,7 +217,7 @@
 									</div>
 								</div>
 								<div class="group11 flex-col justify-center align-center">
-									<span class="word13">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+									<span class="word13">Put on the shelf</span>
 								</div>
 							</div>
 						</div> -->
@@ -280,12 +281,12 @@
 					</div>
 					<div class="block5 flex-col justify-center"><span class="word21">All</span></div>
 					<div class="block6 flex-col justify-center"><span class="word22">All</span></div>
-					<div class="block7 flex-col justify-center"><span class="word23">Price&nbsp;ascending</span></div>
+					<div class="block7 flex-col justify-center"><span class="word23">Price ascending</span></div>
 				</div>
 				<!-- <div class="layer11 flex-col align-center">
 					<div class="mod3 flex-col justify-between">
-						<div class="bd7 flex-col justify-center"><span class="info6">Price&nbsp;ascending</span></div>
-						<span class="info7">Price&nbsp;descending</span>
+						<div class="bd7 flex-col justify-center"><span class="info6">Price ascending</span></div>
+						<span class="info7">Price descending</span>
 					</div>
 				</div> -->
 				<div class="tempcss">
@@ -304,9 +305,9 @@
 								</div>
 							</div>
 							<div class="layer14 flex-row justify-between">
-								<div class="main5 flex-col justify-center align-center disable"><span class="word24">Turn&nbsp;on</span></div>
+								<div class="main5 flex-col justify-center align-center disable"><span class="word24" @click.stop="openBox">Turn on</span></div>
 								<div class="main6 flex-col justify-center align-center disable">
-									<span class="txt8">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+									<span class="txt8">Put on the shelf</span>
 								</div>
 							</div>
 						</div>
@@ -327,9 +328,9 @@
 							</div>
 						</div>
 						<div class="section12 flex-row justify-between">
-							<div class="group12 flex-col justify-center align-center"><span class="word26">Turn&nbsp;on</span></div>
+							<div class="group12 flex-col justify-center align-center"><span class="word26">Turn on</span></div>
 							<div class="group13 flex-col justify-center align-center">
-								<span class="word27">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+								<span class="word27">Put on the shelf</span>
 							</div>
 						</div>
 					</div>
@@ -349,9 +350,9 @@
 							</div>
 						</div>
 						<div class="group18 flex-row justify-between">
-							<div class="outer15 flex-col justify-center align-center"><span class="word28">Turn&nbsp;on</span></div>
+							<div class="outer15 flex-col justify-center align-center"><span class="word28">Turn on</span></div>
 							<div class="outer16 flex-col justify-center align-center">
-								<span class="word29">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+								<span class="word29">Put on the shelf</span>
 							</div>
 						</div>
 					</div>
@@ -371,9 +372,9 @@
 							</div>
 						</div>
 						<div class="group20 flex-row justify-between">
-							<div class="box8 flex-col justify-center align-center"><span class="word30">Turn&nbsp;on</span></div>
+							<div class="box8 flex-col justify-center align-center"><span class="word30">Turn on</span></div>
 							<div class="box9 flex-col justify-center align-center">
-								<span class="info9">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+								<span class="info9">Put on the shelf</span>
 							</div>
 						</div>
 					</div>
@@ -393,9 +394,9 @@
 							</div>
 						</div>
 						<div class="outer18 flex-row justify-between">
-							<div class="layer20 flex-col justify-center align-center"><span class="info11">Turn&nbsp;on</span></div>
+							<div class="layer20 flex-col justify-center align-center"><span class="info11">Turn on</span></div>
 							<div class="layer21 flex-col justify-center align-center">
-								<span class="word31">Put&nbsp;on&nbsp;the&nbsp;shelf</span>
+								<span class="word31">Put on the shelf</span>
 							</div>
 						</div>
 					</div>
@@ -427,7 +428,7 @@
 						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng12f683a97c9076f7f0f73d7858d75d0f0ff7bb79fe4a095a6745695556cd9f6a"
 					/>
 				</div>
-				<div class="group24 flex-row"><span class="info12">&#64;2022&nbsp;Horsefi.games</span></div>
+				<div class="group24 flex-row"><span class="info12">&#64;2022 Horsefi.games</span></div>
 			</div>
 		</div>
 	</div>
@@ -436,25 +437,27 @@
 export default {
 	data () {
 		return {
-			NTFArr: []
+			NTFArr: [ 1 ],
+			NFTNum: 0
 		}
 	},
 	mounted () {
 		let dom = document.getElementById('connectButton')
 
 		dom.innerText = localStorage.getItem('showAdress') || 'connect'
-		this.getNFTNum()
+		this.getNFTList()
 		this.zoomDom()
 		this.getDataFromChain()
 	},
 	methods: {
-		getNFTNum () {
-			let num = localStorage.getItem('balanceOf') || 0
-
-			console.log(num)
-			for (let index = 0; index < num; index++) {
-				this.NTFArr.push('1')
-			}
+		getNFTList () {
+			this.$getNTFList()
+		},
+		openBox () {
+			// this.$openBlindBox()
+		},
+		async getNFTNum () {
+			this.NFTNum = await this.$getBalanceOf()
 		},
 		openLink (type) {
 			switch (type) {

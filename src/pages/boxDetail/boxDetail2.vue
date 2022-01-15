@@ -1,20 +1,7 @@
 <template>
 	<div class="page flex-col" id="zoomDom1">
 		<div class="layer1 flex-col justify-between">
-			<div class="section1 flex-col align-center">
-				<div class="outer1 flex-row">
-					<div class="section2 flex-col" @click="gotoRout('/')"></div>
-					<span class="word1">Blind&nbsp;box</span>
-					<span class="txt1">Market</span>
-					<span @click="gotoRout('/my_package')" class="info1" >My&nbsp;backpack</span>
-					<img
-						class="label1"
-						referrerpolicy="no-referrer"
-						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
-					/>
-					<span class="info2" id="connectButton"></span>
-				</div>
-			</div>
+			<navgator-part></navgator-part>
 			<div class="section3 flex-col">
 				<div class="outer2 flex-row">
 					<div class="box1 flex-col">
@@ -43,7 +30,7 @@
 							<span class="txt4">price:</span>
 							<span class="word2">5 AVAX</span>
 						</div>
-						<div class="layer3 flex-col justify-center"><span class="word3">Buy</span></div>
+						<div class="layer3 flex-col justify-center"><span class="word3">Soon</span></div>
 					</div>
 				</div>
 				<div class="outer4 flex-col justify-center align-center">

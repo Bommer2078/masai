@@ -11,7 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+	"ethers":"5.3.1",
     "@metamask/onboarding": "^1.0.1",
+	"core-js": "^3.6.5",
     "@wangeditor/editor": "^0.12.7",
     "@wangeditor/editor-for-vue": "^0.6.12-2",
     "axios": "^0.19.0",
@@ -28,6 +30,7 @@
     "wangeditor": "^4.7.11"
   },
   "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",

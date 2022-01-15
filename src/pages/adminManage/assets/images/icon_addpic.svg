@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="20px" viewBox="0 0 24 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_addpic</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.5469974,17.0130548 L7.54464365,7.8329844 C7.24522161,7.37504482 6.83900712,7.4185815 6.64041233,7.93492794 L2.35958767,19.0650721 C2.16069598,19.5821904 2.44444121,20 2.99268723,20 L11.0017974,20 L21.4982026,20 C22.0551184,20 22.3432954,19.5821211 22.1499905,19.0666414 L19.8500095,12.9333586 C19.6570691,12.418851 19.1591248,12.2870528 18.738634,12.6411504 L13.5469974,17.0130548 Z M0,3.99079514 C0,2.89130934 0.897026226,2 2.00494659,2 L21.9950534,2 C23.1023548,2 24,2.89821238 24,3.99079514 L24,20.0092049 C24,21.1086907 23.1029738,22 21.9950534,22 L2.00494659,22 C0.897645164,22 0,21.1017876 0,20.0092049 L0,3.99079514 Z M20,8 C21.1045695,8 22,7.1045695 22,6 C22,4.8954305 21.1045695,4 20,4 C18.8954305,4 18,4.8954305 18,6 C18,7.1045695 18.8954305,8 20,8 Z" id="path-1"></path>
+    </defs>
+    <g id="考试" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="管理台-考试、题库5" transform="translate(-402.000000, -337.000000)">
+            <g id="基本信息" transform="translate(200.000000, 182.000000)">
+                <g id="视频封面" transform="translate(10.000000, 108.000000)">
+                    <g id="封面图" transform="translate(110.000000, 1.000000)">
+                        <g id="icon_addpic" transform="translate(82.000000, 44.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Combined-Shape" fill="#DEE2E8" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

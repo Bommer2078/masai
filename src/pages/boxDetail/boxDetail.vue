@@ -1,20 +1,7 @@
 <template>
 	<div class="page flex-col" id="zoomDom1">
 		<div class="group1 flex-col justify-between">
-			<div class="box1 flex-col align-center">
-				<div class="group2 flex-row">
-					<div class="wrap1 flex-col" style="cursor: pointer;"  @click="gotoRout('/')"></div>
-					<span class="word1" style="cursor: pointer;" @click="gotoRout('/box_list')">Blind&nbsp;box</span>
-					<span class="word2" >Market</span>
-					<span class="word3" style="cursor: pointer;" @click="gotoRout('/my_package')">My&nbsp;backpack</span>
-					<img
-						class="icon1"
-						referrerpolicy="no-referrer"
-						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
-					/>
-					<span class="txt1" id="connectButton"></span>
-				</div>
-			</div>
+			<navgator-part></navgator-part>
 			<div class="box2 flex-col">
 				<div class="main1 flex-row justify-between">
 					<div class="main2 flex-col">
@@ -38,11 +25,11 @@
 								</div>
 								<span class="word5">quantity:</span>
 								<div class="main5 flex-row justify-between">
-									<div class="bd1 flex-col"></div>
-									<div class="bd2 flex-col justify-center align-center"><span class="word6">1</span></div>
-									<div class="bd3 flex-col"></div>
+									<div class="bd1 flex-col" @click="count(-1)"></div>
+									<div class="bd2 flex-col justify-center align-center"><span class="word6">{{buyNum}}</span></div>
+									<div class="bd3 flex-col" @click="count(1)"></div>
 								</div>
-								<div class="main6 flex-col justify-center"><span class="info2">Buy</span></div>
+								<div class="main6 flex-col justify-center" @click="buyBlindBox"><span class="info2">Buy</span></div>
 							</div>
 						</div>
 						<span class="word7">describe:</span>
@@ -143,7 +130,8 @@
 export default {
 	data () {
 		return {
-			constants: {}
+			constants: {},
+			buyNum   : 1
 		}
 	},
 	mounted () {
@@ -151,9 +139,35 @@ export default {
 
 		dom.innerText = localStorage.getItem('showAdress') || 'connect'
 		this.zoomDom()
-		this.$initializ()
 	},
 	methods: {
+		count (value) {
+			this.buyNum = this.buyNum + value
+			this.buyNum = this.buyNum < 1 ? 1 : this.buyNum
+		},
+		connectWallet () {
+			this.$connectWallet()
+		},
+		async buyBlindBox () {
+			let res = await this.$buyBlindBox(this.buyNum)
+
+			let params = {
+				transaction_hash: res.transactionHash,
+				tansaction_time : new Date().getTime(),
+				buyer           : '0xDB193F3a78AaC74A77f2fEE96Db210C88a9c2438',
+				price           : 5,
+				sell_round      : '1'
+			}
+
+			this.$http.post(this.$api.saveTransaction, params)
+				.then((res) => {
+					if (res.data.status === 0) {
+						console.log(res)
+					} else {
+						this.$message.error(res.data.message)
+					}
+				})
+		},
 		openLink (type) {
 			switch (type) {
 				case 'twitter':
@@ -413,6 +427,7 @@ export default {
                 .bd1 {
                   width: 30px;
                   height: 30px;
+				cursor: pointer;
                   background: url(../../../static/img/demo/SketchPng5ce0da2fbe80accc463293ad74293196d0d343eda1568dc8d5ec8ac857b47bee.png) -1px -1px
                     no-repeat;
                 }
@@ -435,6 +450,7 @@ export default {
                   }
                 }
                 .bd3 {
+				cursor: pointer;
                   width: 30px;
                   height: 30px;
                   background: url(../../../static/img/demo/SketchPng42e325ce788763ee359bd60c16fad43b9e29e804daafa737188ea259982cd7cc.png) -1px -1px
@@ -448,7 +464,7 @@ export default {
                 margin-top: 50px;
                 padding-left: 98px;
                 width: 220px;
-				cursor:not-allowed;
+				cursor: pointer;
                 .info2 {
                   width: 25px;
                   height: 16px;
@@ -475,7 +491,7 @@ export default {
             white-space: nowrap;
             line-height: 20px;
             text-align: left;
-            margin-top: 280px;
+            margin-top: 310px;
           }
         }
       }

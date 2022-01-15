@@ -47,6 +47,7 @@ const initialize = () => {
 	}
 	const onClickConnect = async () => {
 		try {
+			console.log(123456)
 			// Will open the MetaMask UI
 			// You should disable this button while the request is pending!
 			let res = await ethereum.request({ method: 'eth_requestAccounts' })
@@ -65,6 +66,11 @@ const initialize = () => {
 
 			contract.methods.balanceOf(walletAddress).call().then((res) => {
 				localStorage.setItem('balanceOf', res)
+				console.log(55555555555555, res)
+			})
+			console.log('contract.methods', contract.methods)
+			contract.methods.buy(1).then((res) => {
+				console.log(res)
 			})
 		} catch (error) {
 			// console.error(error)

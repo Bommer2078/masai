@@ -1,20 +1,7 @@
 <template>
 	<div class="page flex-col" id="zoomDom2">
 		<div class="wrap1 flex-col justify-between">
-			<div class="outer1 flex-col align-center">
-				<div class="outer2 flex-row">
-					<div class="mod1 flex-col" style="cursor: pointer;" @click="gotoRout('/')"></div>
-					<span class="info1">Blind&nbsp;box</span>
-					<span class="info2" >Market</span>
-					<span class="word1" style="cursor: pointer;" @click="gotoRout('/my_package')">My&nbsp;backpack</span>
-					<img
-						class="label1"
-						referrerpolicy="no-referrer"
-						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4daef83faf38ece40b3562a5334283675583acf4ce02e8d77fb7206ee91b4a73"
-					/>
-					<span class="word2" @click="linkWallet" id="connectButton">link to wallet</span>
-				</div>
-			</div>
+			<navgator-part></navgator-part>
 			<div class="outer3 flex-col">
 				<!-- <div class="bd1 flex-row">
 					<div class="group1 flex-row">
@@ -64,31 +51,33 @@
 			/>
 			<div class="bd5 flex-col"></div>
 		</div>
-		<div class="wrap4 flex-col align-center">
-			<div class="box1 flex-col">
-				<div class="box2 flex-col">
-					<div class="wrap5 flex-row">
-						<div class="main1 flex-col justify-center align-center"><span class="txt3">Over</span></div>
-					</div>
-					<div class="wrap6 flex-row"><span class="txt4">×500</span></div>
-					<div class="wrap7 flex-col" @click="gotoRout('/box_detail')">
-						<div class="group3 flex-col">
-							<img
-								class="pic1"
-								referrerpolicy="no-referrer"
-								src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0199babb2e86a4f8752a8699472fd51e6cac175bc49062a8987149fb9748d9aa"
-							/>
+		<div class="wrap4">
+			<div class="align-center blind-box" v-for="(item,index) in RoundList" :key="index">
+				<div class="box1 flex-col" >
+					<div class="box2 flex-col">
+						<div class="wrap5 flex-row">
+							<!-- <div class="main1 flex-col justify-center align-center"><span class="txt3">Over</span></div> -->
+						</div>
+						<div class="wrap6 flex-row"><span class="txt4">×{{item.amount}}</span></div>
+						<div class="wrap7 flex-col" @click="gotoRout('/box_detail')">
+							<div class="group3 flex-col">
+								<img
+									class="pic1"
+									referrerpolicy="no-referrer"
+									src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0199babb2e86a4f8752a8699472fd51e6cac175bc49062a8987149fb9748d9aa"
+								/>
+							</div>
 						</div>
 					</div>
-				</div>
-				<span class="word6">Genesis Ⅰ</span>
-				<div class="box3 flex-row justify-between">
-					<img
-						class="icon3"
-						referrerpolicy="no-referrer"
-						src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfee5239298b371cc41b1e270e9954b5334197e05eebca9cb336d9138890b9e54"
-					/>
-					<span class="info5">5 AVAX</span>
+					<span class="word6">{{item.name}}</span>
+					<div class="box3 flex-row justify-between">
+						<img
+							class="icon3"
+							referrerpolicy="no-referrer"
+							src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngfee5239298b371cc41b1e270e9954b5334197e05eebca9cb336d9138890b9e54"
+						/>
+						<span class="info5">{{item.price}} AVAX</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -228,10 +217,12 @@
 			</div>
 			<div class="bd9 flex-row"><span class="info10">&#64;2022&nbsp;Horsefi.games</span></div>
 		</div>
+		<wallent-connect-box :showLinkWallentBox.sync="showLinkWallentBox"></wallent-connect-box>
 	</div>
 </template>
 <script>
 // import getWeb3 from '../../libs/linkMetaMask.js'
+import wallentConnectBox from '@/components/wallentConnectBox.vue'
 export default {
 	data () {
 		return {
@@ -297,7 +288,9 @@ export default {
 					lanhutext3: '0.124&nbsp;HRW'
 				}
 			],
-			constants: {}
+			RoundList         : [],
+			constants         : {},
+			showLinkWallentBox: false
 		}
 	},
 	mounted () {
@@ -305,9 +298,22 @@ export default {
 
 		dom.innerText = localStorage.getItem('showAdress') || 'connect'
 		this.zoomDom()
-		this.$initializ()
+		this.getList()
+		// this.$initializ()
+	},
+	components: {
+		wallentConnectBox
 	},
 	methods: {
+		getList () {
+			this.$http.get(this.$api.getRound).then(({data}) => {
+				if (data.status === 0) {
+					this.RoundList = data.result
+				} else {
+					this.$message.error(data.message)
+				}
+			})
+		},
 		openLink (type) {
 			switch (type) {
 				case 'twitter':
@@ -337,7 +343,9 @@ export default {
 				this.$router.replace(rou)
 			}
 		},
-		linkWallet () {},
+		linkWallet () {
+			// this.showLinkWallentBox = true
+		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth
 			let zoomDom = document.getElementById('zoomDom2')
@@ -687,12 +695,17 @@ export default {
   .wrap4 {
     z-index: 179;
     height: 400px;
-    border: 2px solid rgba(212, 179, 93, 1);
     padding-top: -1px;
     width: 284px;
     position: absolute;
+	display: flex;
     left: 240px;
     top: 774px;
+	flex-direction: row;
+	.blind-box {
+border: 2px solid rgba(212, 179, 93, 1);
+	margin-right: 40px;
+	}
     .box1 {
       width: 282px;
       height: 373px;
