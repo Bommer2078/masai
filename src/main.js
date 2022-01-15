@@ -7,6 +7,7 @@ import { Table, TableColumn, Pagination, Tree, Message, MessageBox, TimeSelect,
 import tButton from '@/pages/adminManage/components/common/t_button.vue'
 import searchGroup from '@/pages/adminManage/components/common/search_group.vue'
 import navgatorPart from '@/components/navgatorPart.vue'
+import wallentConnectBox from '@/components/wallentConnectBox.vue'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'normalize.css/normalize.css'
 import axios from './http'
@@ -31,6 +32,7 @@ Vue.prototype.$api = api
 Vue.component('t-button', tButton)
 Vue.component('navgator-part', navgatorPart)
 Vue.component('search-group', searchGroup)
+Vue.component('wallent-connect-box', wallentConnectBox)
 Vue.use(Table)
 Vue.use(Row)
 Vue.use(Col)

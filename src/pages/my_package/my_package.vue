@@ -437,7 +437,7 @@
 export default {
 	data () {
 		return {
-			NTFArr: [ 1 ],
+			NTFArr: [],
 			NFTNum: 0
 		}
 	},
@@ -446,6 +446,7 @@ export default {
 
 		dom.innerText = localStorage.getItem('showAdress') || 'connect'
 		this.getNFTList()
+		this.getNFTNum()
 		this.zoomDom()
 		this.getDataFromChain()
 	},
@@ -456,8 +457,14 @@ export default {
 		openBox () {
 			// this.$openBlindBox()
 		},
-		async getNFTNum () {
-			this.NFTNum = await this.$getBalanceOf()
+		 getNFTNum () {
+			this.$connectWallet().then(async () => {
+				this.NFTNum = await this.$getBalanceOf()
+				console.log('this.NFTNum', this.NFTNum)
+				if (this.NFTNum) {
+					// this.NTFArr = new Array(this.NFTNum)
+				}
+			})
 		},
 		openLink (type) {
 			switch (type) {
@@ -1604,7 +1611,6 @@ export default {
 			left: 240px;
 			top: 250px;
 			display: flex;
-			height: 1200px;
 			flex-direction: row;flex-flow: row wrap;
 			overflow-y: auto;
 			-webkit-scrollbar {display:none}

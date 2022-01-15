@@ -141,17 +141,7 @@ export default {
 			}
 		},
 		gotoRout (rou) {
-			if (rou === '/my_package') {
-				let val = localStorage.getItem('showAdress') || null
-
-				if (val) {
-					this.$router.replace(rou)
-				} else {
-					alert('connect wallet first')
-				}
-			} else {
-				this.$router.replace(rou)
-			}
+			this.$router.replace(rou)
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth

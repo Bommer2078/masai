@@ -11,14 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-	"ethers":"5.3.1",
+	"ethers":"^5.5.1",
     "@metamask/onboarding": "^1.0.1",
 	"core-js": "^3.6.5",
-    "@wangeditor/editor": "^0.12.7",
-    "@wangeditor/editor-for-vue": "^0.6.12-2",
     "axios": "^0.19.0",
     "browser-md5-file": "^1.1.1",
-    "echarts": "^5.2.2",
     "element-ui": "^2.11.1",
     "js-md5": "^0.7.3",
     "less": "^3.9.0",
@@ -26,8 +23,7 @@
     "normalize.css": "^8.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.1.1",
-    "vue-ueditor-wrap": "^2.4.1",
-    "wangeditor": "^4.7.11"
+    "vue-ueditor-wrap": "^2.4.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

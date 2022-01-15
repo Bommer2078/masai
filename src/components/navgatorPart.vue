@@ -17,6 +17,7 @@
 			/>
 			<span class="word2" id="connectButton" @click="connectWallet">Connect Wallet</span>
 		</div>
+		<wallent-connect-box :showLinkWallentBox.sync="showLinkWallentBox"></wallent-connect-box>
 	</div>
 </template>
 
@@ -24,7 +25,8 @@
 export default {
 	data () {
 		return {
-			currentRote: ''
+			currentRote       : '',
+			showLinkWallentBox: false
 		}
 	},
 	mounted () {
@@ -34,8 +36,12 @@ export default {
 		}
 	},
 	methods: {
-		connectWallet () {
-			this.$connectWallet()
+		async connectWallet () {
+			if (!sessionStorage.getItem('currentWallet')) {
+				this.showLinkWallentBox = true
+			} else {
+				this.$connectWallet()
+			}
 		},
 		gotoRout (rou) {
 			if (this.currentRote === rou) return
@@ -44,6 +50,8 @@ export default {
 
 				if (val) {
 					this.$router.replace(rou)
+				} else {
+					alert('link you wallet first!')
 				}
 			} else {
 				this.$router.replace(rou)

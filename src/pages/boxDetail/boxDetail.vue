@@ -11,7 +11,7 @@
 								referrerpolicy="no-referrer"
 								src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf66eb6e7b76953797e9995e4d428a018c3ee9abe3b17123bd85bee1e20854148"
 							/>
-							<span class="info1"  @click="gotoRout('/box_list')">return</span>
+							<span class="info1" >return</span>
 						</div>
 					</div>
 					<div class="main3 flex-col">
@@ -124,15 +124,23 @@
 			</div>
 			<div class="main9 flex-row"><span class="word15">&#64;2022&nbsp;Horsefi.games</span></div>
 		</div>
+		<loading-box :showLoadingBox.sync="showLoadingBox" :loadingText="loadingText" :errorInfo.sync="errorInfo"></loading-box>
 	</div>
 </template>
 <script>
+import loadingBox from '../../components/loadingBox.vue'
 export default {
 	data () {
 		return {
-			constants: {},
-			buyNum   : 1
+			constants     : {},
+			buyNum        : 1,
+			showLoadingBox: false,
+			loadingText   : 'Buying',
+			errorInfo     : ''
 		}
+	},
+	components: {
+		loadingBox
 	},
 	mounted () {
 		let dom = document.getElementById('connectButton')
@@ -149,8 +157,17 @@ export default {
 			this.$connectWallet()
 		},
 		async buyBlindBox () {
+			this.showLoadingBox = true
+			if (!sessionStorage.getItem('currentWallet')) {
+				this.errorInfo = 'Link Your Wallet First!'
+				return
+			}
 			let res = await this.$buyBlindBox(this.buyNum)
 
+			if (!res) {
+				this.errorInfo = 'MetaMask Error'
+				return
+			}
 			let params = {
 				transaction_hash: res.transactionHash,
 				tansaction_time : new Date().getTime(),
@@ -166,6 +183,9 @@ export default {
 					} else {
 						this.$message.error(res.data.message)
 					}
+					setTimeout(() => {
+						this.showLoadingBox = false
+					}, 1000)
 				})
 		},
 		openLink (type) {
@@ -185,17 +205,7 @@ export default {
 			}
 		},
 		gotoRout (rou) {
-			if (rou === '/my_package') {
-				let val = localStorage.getItem('showAdress') || null
-
-				if (val) {
-					this.$router.replace(rou)
-				} else {
-					alert('connect wallet first')
-				}
-			} else {
-				this.$router.replace(rou)
-			}
+			this.$router.replace(rou)
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth

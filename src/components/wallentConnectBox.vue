@@ -11,11 +11,11 @@
 				</template>
 				<template v-else>
 					<span>connection error</span>
-					<div class="try-button">Try again</div>
+					<div class="try-button" @click="choseWallent(currentSelectWallent)">Try again</div>
 				</template>
 			</div>
 			<div class="wallen-type" v-show="currentSelectWallent !== 'WalletConnect'" :class="{'uninstall-style': !hasMetaWallent}" @click="choseWallent('METAMASK')">
-				<span>METAMASK</span>
+				<span>{{!hasMetaWallent ? 'Install ' : ''}} METAMASK</span>
 				<img src="https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngd638cb4d9e96a395c93887d282fc71d6658677af545ae3530ebd30103320296b">
 			</div>
 			<!-- <div class="wallen-type" v-show="currentSelectWallent !== 'METAMASK'" :class="{'uninstall-style': !hasWalletConnect}" @click="choseWallent('WalletConnect')">
@@ -45,12 +45,32 @@ export default {
 			currentSelectWallent: ''
 		}
 	},
+	watch: {
+		showLinkWallentBox (newVal) {
+			if (newVal && !window.ethereum) {
+				this.hasMetaWallent = false
+			}
+		}
+	},
 	methods: {
 		closeWallentBox () {
 			this.$emit('update:showLinkWallentBox', false)
 		},
-		choseWallent (type) {
+		async choseWallent (type) {
+			if (!this.hasMetaWallent) {
+				window.open('https://metamask.io/')
+				return
+			}
 			this.currentSelectWallent = type
+			this.wallentLoading = true
+			let res = await this.$connectWallet()
+
+			if (res) {
+				this.closeWallentBox()
+			} else {
+				this.wallentLoading = false
+			}
+			console.log(res)
 		}
 	}
 }

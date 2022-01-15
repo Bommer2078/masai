@@ -217,12 +217,10 @@
 			</div>
 			<div class="bd9 flex-row"><span class="info10">&#64;2022&nbsp;Horsefi.games</span></div>
 		</div>
-		<wallent-connect-box :showLinkWallentBox.sync="showLinkWallentBox"></wallent-connect-box>
 	</div>
 </template>
 <script>
 // import getWeb3 from '../../libs/linkMetaMask.js'
-import wallentConnectBox from '@/components/wallentConnectBox.vue'
 export default {
 	data () {
 		return {
@@ -288,9 +286,8 @@ export default {
 					lanhutext3: '0.124&nbsp;HRW'
 				}
 			],
-			RoundList         : [],
-			constants         : {},
-			showLinkWallentBox: false
+			RoundList: [],
+			constants: {}
 		}
 	},
 	mounted () {
@@ -300,9 +297,6 @@ export default {
 		this.zoomDom()
 		this.getList()
 		// this.$initializ()
-	},
-	components: {
-		wallentConnectBox
 	},
 	methods: {
 		getList () {
@@ -331,20 +325,7 @@ export default {
 			}
 		},
 		gotoRout (rou) {
-			if (rou === '/my_package') {
-				let val = localStorage.getItem('showAdress') || null
-
-				if (val) {
-					this.$router.replace(rou)
-				} else {
-					alert('connect wallet first')
-				}
-			} else {
-				this.$router.replace(rou)
-			}
-		},
-		linkWallet () {
-			// this.showLinkWallentBox = true
+			this.$router.replace(rou)
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth
