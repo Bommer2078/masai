@@ -59,12 +59,15 @@ let buyBlindBox = async (num) => {
 		let res = await myContract.buy(num, {
 			value: utils.parseEther('5').mul(num)
 		})
+
+		console.log(111, res)
 		let tx = await res.wait()
 
-		return tx
+		console.log(222, tx)
+		return {done: true, ...tx}
 	} catch (err) {
-		console.log(555, err)
-		return false
+		console.log(333, err)
+		return {done: false, ...err}
 	}
 }
 let getCurrentTokenId = async () => {

@@ -306,9 +306,9 @@
 							</div>
 							<div class="layer14 flex-row justify-between">
 								<div class="main5 flex-col justify-center align-center disable"><span class="word24" @click.stop="openBox">Turn on</span></div>
-								<div class="main6 flex-col justify-center align-center disable">
+								<!-- <div class="main6 flex-col justify-center align-center disable">
 									<span class="txt8">Put on the shelf</span>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -457,12 +457,12 @@ export default {
 		openBox () {
 			// this.$openBlindBox()
 		},
-		 getNFTNum () {
+		getNFTNum () {
 			this.$connectWallet().then(async () => {
 				this.NFTNum = await this.$getBalanceOf()
 				console.log('this.NFTNum', this.NFTNum)
 				if (this.NFTNum) {
-					// this.NTFArr = new Array(this.NFTNum)
+					this.NTFArr = new Array(this.NFTNum)
 				}
 			})
 		},

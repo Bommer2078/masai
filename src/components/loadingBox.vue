@@ -26,11 +26,11 @@ export default {
 		},
 		loadingText: {
 			type   : String,
-			default: false
+			default: ''
 		},
 		errorInfo: {
 			type   : String,
-			default: false
+			default: ''
 		}
 	},
 	data () {

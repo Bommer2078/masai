@@ -15,13 +15,13 @@
 						</div>
 					</div>
 					<div class="main3 flex-col">
-						<span class="word4">Genesis Ⅰ</span>
+						<span class="word4">{{currentForm.name}}</span>
 						<!-- <div class="section1 flex-col align-center"><span class="txt2">Over</span></div> -->
 						<div class="section2 flex-col">
 							<div class="box3 flex-col">
 								<div class="main4 flex-row justify-between">
 									<span class="txt3">price:</span>
-									<span class="txt4">5 AVAX</span>
+									<span class="txt4">{{currentForm.price}} AVAX</span>
 								</div>
 								<span class="word5">quantity:</span>
 								<div class="main5 flex-row justify-between">
@@ -55,16 +55,16 @@
 				<div class="wrap2 flex-row justify-between">
 					<span class="txt5">Starting&nbsp;time:</span>
 					<span class="word8">
-						2022-01-15 UTC 20:00 - 022-01-18 UTC 20:00
+						{{$utils.dateText(currentForm.start_time)}} - {{$utils.dateText(currentForm.end_time)}}
 					</span>
 				</div>
 				<div class="wrap3 flex-row justify-between">
 					<span class="word9">Limited&nbsp;purchase&nbsp;quantity:</span>
-					<span class="txt6">0&nbsp;/&nbsp;5</span>
+					<span class="txt6">0&nbsp;/&nbsp;{{currentForm.limit_per_user}}</span>
 				</div>
 				<div class="wrap4 flex-row justify-between">
 					<span class="txt7">The&nbsp;total&nbsp;amount:</span>
-					<span class="txt8">500&nbsp;/&nbsp;500</span>
+					<span class="txt8">0&nbsp;/&nbsp;{{currentForm.amount}}</span>
 				</div>
 			</div>
 		</div>
@@ -74,20 +74,20 @@
 					Probability&nbsp;of&nbsp;the&nbsp;following&nbsp;horses&nbsp;in&nbsp;this&nbsp;blind&nbsp;box:
 				</span>
 				<div class="outer1 flex-row justify-between">
-					<span class="word10">Legendary&nbsp;horse:</span>
-					<span class="info3">2%</span>
+					<span class="word10">Legendary Horse:</span>
+					<span class="info3">{{currentForm.legendary_rate}}%</span>
 				</div>
 				<div class="outer2 flex-row justify-between">
-					<span class="info4">Epic&nbsp;Horse:</span>
-					<span class="word11">10%</span>
+					<span class="info4">Epic Horse:</span>
+					<span class="word11">{{currentForm.epic_rate}}%</span>
 				</div>
 				<div class="outer3 flex-row justify-between">
-					<span class="info5">Rare&nbsp;horse:</span>
-					<span class="word12">25%</span>
+					<span class="info5">Rare Horse:</span>
+					<span class="word12">{{currentForm.rare_rate}}%</span>
 				</div>
 				<div class="outer4 flex-row justify-between">
-					<span class="word13">Normal&nbsp;horse:</span>
-					<span class="word14">63%</span>
+					<span class="word13">Normal Horse:</span>
+					<span class="word14">{{currentForm.normal_rate}}%</span>
 				</div>
 			</div>
 		</div>
@@ -136,22 +136,37 @@ export default {
 			buyNum        : 1,
 			showLoadingBox: false,
 			loadingText   : 'Buying',
-			errorInfo     : ''
+			errorInfo     : '',
+			currentForm   : {},
+			id            : ''
 		}
 	},
 	components: {
 		loadingBox
 	},
 	mounted () {
+		this.zoomDom()
+		this.id = this.$route.query.id
 		let dom = document.getElementById('connectButton')
 
 		dom.innerText = localStorage.getItem('showAdress') || 'connect'
-		this.zoomDom()
+		this.getCurrentBox()
 	},
 	methods: {
 		count (value) {
 			this.buyNum = this.buyNum + value
 			this.buyNum = this.buyNum < 1 ? 1 : this.buyNum
+		},
+		getCurrentBox () {
+			this.$http.get(this.$api.getRound).then(({data}) => {
+				if (data.status === 0) {
+					this.currentForm = data.result.find((el) => {
+						return String(this.id) === String(el.id)
+					})
+				} else {
+					this.$message.error(data.message)
+				}
+			})
 		},
 		connectWallet () {
 			this.$connectWallet()
@@ -164,8 +179,16 @@ export default {
 			}
 			let res = await this.$buyBlindBox(this.buyNum)
 
-			if (!res) {
-				this.errorInfo = 'MetaMask Error'
+			if (!res.done) {
+				if (res.data) {
+					if (res.data.code === -32000) {
+						this.errorInfo = 'The balance of account is insufficient'
+					} else {
+						this.errorInfo = res.data.message
+					}
+				} else {
+					this.errorInfo = res.message
+				}
 				return
 			}
 			let params = {
@@ -180,12 +203,11 @@ export default {
 				.then((res) => {
 					if (res.data.status === 0) {
 						console.log(res)
-					} else {
-						this.$message.error(res.data.message)
 					}
+				}).finally(() => {
 					setTimeout(() => {
 						this.showLoadingBox = false
-					}, 1000)
+					}, 300)
 				})
 		},
 		openLink (type) {

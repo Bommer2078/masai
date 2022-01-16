@@ -56,10 +56,10 @@
 				<div class="box1 flex-col" >
 					<div class="box2 flex-col">
 						<div class="wrap5 flex-row">
-							<!-- <div class="main1 flex-col justify-center align-center"><span class="txt3">Over</span></div> -->
+							<div class="main1 flex-col justify-center align-center" v-if="isWait(item)"><span class="txt3">coming</span></div>
 						</div>
 						<div class="wrap6 flex-row"><span class="txt4">×{{item.amount}}</span></div>
-						<div class="wrap7 flex-col" @click="gotoRout('/box_detail')">
+						<div class="wrap7 flex-col" @click="gotoRoutItem(item)">
 							<div class="group3 flex-col">
 								<img
 									class="pic1"
@@ -326,6 +326,22 @@ export default {
 		},
 		gotoRout (rou) {
 			this.$router.replace(rou)
+		},
+		isWait (obj) {
+			for (const key in obj) {
+				if (Object.hasOwnProperty.call(obj, key)) {
+					const element = obj[key]
+
+					if (element === '') {
+						return true
+					}
+				}
+			}
+			return false
+		},
+		gotoRoutItem (obj) {
+			if (this.isWait(obj)) return
+			this.$router.replace(`box_detail?id=${obj.id}`)
 		},
 		zoomDom () {
 			this.devicewidth = document.documentElement.clientWidth
